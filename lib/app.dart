@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager_project_getx/ui/screens/Splash_screen.dart';
 
 class TaskManagerApp extends StatelessWidget {
   const TaskManagerApp({super.key});
@@ -9,6 +10,7 @@ class TaskManagerApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
       theme: ThemeData(
           inputDecorationTheme: const InputDecorationTheme(
             fillColor: Colors.white,

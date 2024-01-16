@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager_project_getx/ui/screens/login_screens.dart';
+import 'package:task_manager_project_getx/ui/screens/pin_verification_screen.dart';
+import 'package:task_manager_project_getx/ui/widgets/body_background.dart';
 
-
-class PinVerificationScreen extends StatefulWidget {
-  const PinVerificationScreen({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
-  State<PinVerificationScreen> createState() => _PinVerificationScreenState();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _PinVerificationScreenState extends State<PinVerificationScreen> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class _PinVerificationScreenState extends State<PinVerificationScreen> {
                 const SizedBox(
                   height: 80,
                 ),
-                Text('Pin Verification',
+                Text('Your Email Address',
                     style: Theme.of(context).textTheme.titleLarge),
                 const SizedBox(
                   height: 8,
@@ -35,25 +37,15 @@ class _PinVerificationScreenState extends State<PinVerificationScreen> {
                 const SizedBox(
                   height: 24,
                 ),
-                PinCodeTextField(
-                  length: 6,
-                  obscureText: false,
-
-                  animationType: AnimationType.fade,
-                  pinTheme: PinTheme(
-                    shape: PinCodeFieldShape.box,
-                    borderRadius: BorderRadius.circular(5),
-                    fieldHeight: 50,
-                    fieldWidth: 40,
-                    activeFillColor: Colors.white,
-                  ),
-                  animationDuration: const Duration(milliseconds: 300),
-                  backgroundColor: Colors.blue.shade50,
-                  enableActiveFill: true,
-
-                  onChanged: (value) {
-                  }, appContext: context,
-
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: const InputDecoration(
+                      helperText: 'Email',
+                      fillColor: Colors.white,
+                      filled: true,
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                      )),
                 ),
                 const SizedBox(
                   height: 16,
@@ -62,9 +54,9 @@ class _PinVerificationScreenState extends State<PinVerificationScreen> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPassword(),),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const PinVerificationScreen(),),);
                     },
-                    child: const Text('Verify'),
+                    child: const Icon(Icons.arrow_circle_right_outlined),
                   ),
                 ),
                 const SizedBox(
