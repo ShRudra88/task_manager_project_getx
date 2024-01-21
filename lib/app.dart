@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager_project_getx/ui/screens/Splash_screen.dart';
+import 'package:get/get.dart';
 
 class TaskManagerApp extends StatelessWidget {
   const TaskManagerApp({super.key});
@@ -8,35 +8,51 @@ class TaskManagerApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return GetMaterialApp(
+      title: 'Task Manager',
       home: const SplashScreen(),
       theme: ThemeData(
           inputDecorationTheme: const InputDecorationTheme(
-            fillColor: Colors.white,
-            filled: true,
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide.none,
-            ),
-          ),
+              fillColor: Colors.white,
+              filled: true,
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide.none,
+              )),
           textTheme: const TextTheme(
               titleLarge: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.w600,
-              )
-          ),
+              )),
           primaryColor: Colors.green,
           primarySwatch: Colors.green,
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-                padding: const EdgeInsets.symmetric(vertical: 10),
-              )
-          )
-      ),
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                // maximumSize: const Size.fromWidth(double.infinity)
+              ))),
+      //initialBinding: ControllerBinder(),
     );
+  }
+}
+
+/*class ControllerBinder extends Bindings {
+  @override
+  void dependencies() {
+    Get.put(AuthController());
+    Get.put(PinVerificationController());
+    Get.put(SignUpController());
+    Get.put(ResetPassWordController());
+    Get.put(ForgotPasswordController());
+    Get.put(EditProfileController());
+    Get.put(ProgressTaskController());
+    Get.put(CompletedTaskController());
+    Get.put(TaskCountSummaryListController());
+    Get.put(CancelledTaskController());
+    Get.put(AddNewTaskController());
+    Get.put(LoginController());
+    Get.put(NewTaskController());
   }
 }

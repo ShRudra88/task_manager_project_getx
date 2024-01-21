@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager_project/data_network_caller/network_caller.dart';
-import 'package:task_manager_project/data_network_caller/network_response.dart';
-import 'package:task_manager_project/ui/widgets/body_background.dart';
-import 'package:task_manager_project/ui/widgets/snack_massage.dart';
-import 'package:task_manager_project/utility/urls.dart';
+import 'package:task_manager_project_rest_api/ui/controllers/signup_controller.dart';
+import 'package:task_manager_project_rest_api/ui/widgets/body_background.dart';
+
+import '../../data/network_caller/network_caller.dart';
+import '../../data/network_caller/network_response.dart';
+import '../../data/utility/urls.dart';
+import '../widgets/snack_message.dart';
+import 'package:get/get.dart';
+
+import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -20,7 +25,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _passwordTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  bool _signUpInProgress = false;
+  SignUpController _signUpController = Get.find<SignUpController>();
 
   @override
   Widget build(BuildContext context) {
@@ -51,9 +56,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       decoration: const InputDecoration(
                         hintText: 'Email',
                       ),
+                      autovalidateMode: AutovalidateMode.always,
                       validator: (String? value) {
                         if (value?.trim().isEmpty ?? true) {
                           return 'Enter your valid email';
+                        }
+                        bool emailValid = RegExp(
+                            r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                            .hasMatch(value!);
+                        if (emailValid == false) {
+                          return 'Enter valid Email';
                         }
                         return null;
                       },
@@ -98,9 +110,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         hintText: 'Mobile',
                       ),
                       validator: (String? value) {
-                        // todo - validate the mobile no with 11 digits
                         if (value?.trim().isEmpty ?? true) {
                           return 'Enter your mobile';
+                        }
+                        bool validPhone =
+                        RegExp(r'^01[3-9][0-9]{8}$').hasMatch(value!);
+
+                        if (validPhone == false) {
+                          return 'Enter valid Phone Number';
                         }
                         return null;
                       },
@@ -116,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       validator: (String? value) {
                         if (value?.isEmpty ?? true) {
-                          return 'Enter your mobile';
+                          return 'Enter your Password';
                         }
                         if (value!.length < 6) {
                           return 'Enter password more than 6 letters';
@@ -129,16 +146,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     SizedBox(
                       width: double.infinity,
-                      child: Visibility(
-                        visible: _signUpInProgress == false,
-                        replacement: const Center(
-                          child: CircularProgressIndicator(),
-                        ),
-                        child: ElevatedButton(
-                          onPressed: _signUp,
-                          child: const Icon(Icons.arrow_circle_right_outlined),
-                        ),
-                      ),
+                      child: GetBuilder<SignUpController>(
+                          builder: (signUpController) {
+                            return Visibility(
+                              visible: signUpController.signUpInProgress == false,
+                              replacement: const Center(
+                                child: CircularProgressIndicator(),
+                              ),
+                              child: ElevatedButton(
+                                onPressed: _signUp,
+                                child: const Icon(Icons.arrow_forward_ios),
+                              ),
+                            );
+                          }),
                     ),
                     const SizedBox(
                       height: 48,
@@ -155,7 +175,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            Get.back();
                           },
                           child: const Text(
                             'Sign In',
@@ -175,36 +195,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> _signUp() async {
-    if (_formKey.currentState!.validate()) {
-      _signUpInProgress = true;
+    if (!_formKey.currentState!.validate()) {
+      return;
+    }
+
+    final response = await _signUpController.signUp(
+        _emailTEController.text.trim(),
+        _firstNameTEController.text.trim(),
+        _lastNameTEController.text.trim(),
+        _mobileTEController.text.trim(),
+        _passwordTEController.text);
+
+    if (response) {
+      _clearTextFields();
       if (mounted) {
-        setState(() {});
+        showSnackMessage(context, _signUpController.message);
+        Get.offAll(const LoginScreen());
       }
-      final NetworkResponse response =
-      await NetworkCaller()
-          .postRequest(Urls.registration, body: {
-        "firstName": _firstNameTEController.text.trim(),
-        "lastName" : _lastNameTEController.text.trim(),
-        "email" : _emailTEController.text.trim(),
-        "password" : _passwordTEController.text,
-        "mobile": _mobileTEController.text.trim(),
-      });
-      _signUpInProgress = false;
+    } else {
       if (mounted) {
-        setState(() {});
-      }
-      if (response.isSuccess) {
-        _clearTextFields();
-        if (mounted) {
-          showSnackMessage(context, 'Account has been created! Please login.');
-        }
-      } else {
-        if (mounted) {
-          showSnackMessage(
-              context,
-              'Account creation failed! Please try again.',
-              true);
-        }
+        showSnackMessage(context, _signUpController.message, true);
       }
     }
   }

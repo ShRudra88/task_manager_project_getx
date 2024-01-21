@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager_project_getx/ui/screens/cancil_task_screen.dart';
-import 'package:task_manager_project_getx/ui/screens/completed_task_screen.dart';
-import 'package:task_manager_project_getx/ui/screens/new_task_screen.dart';
-import 'package:task_manager_project_getx/ui/screens/progress_task_screen.dart';
-
+import 'package:task_manager_project_rest_api/ui/screens/cancelled_tasks_screen.dart';
+import 'package:task_manager_project_rest_api/ui/screens/completed_tasks_screen.dart';
+import 'package:task_manager_project_rest_api/ui/screens/new_tasks_screen.dart';
+import 'package:task_manager_project_rest_api/ui/screens/progress_tasks_screen.dart';
 
 class MainBottomNavScreen extends StatefulWidget {
   const MainBottomNavScreen({super.key});
@@ -21,6 +20,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
     CompletedTasksScreen(),
     CancelledTasksScreen(),
   ];
+
 
   @override
   Widget build(BuildContext context) {
