@@ -1,21 +1,4 @@
-import 'dart:async';
 
-import 'package:flutter/material.dart';
-import 'package:task_manager_project_rest_api/ui/screens/main_bottom_nav_screen.dart';
-import 'package:task_manager_project_rest_api/ui/screens/new_tasks_screen.dart';
-import 'package:task_manager_project_rest_api/ui/widgets/body_background.dart';
-import 'package:task_manager_project_rest_api/ui/widgets/profile_summary_card.dart';
-import 'dart:convert';
-import 'package:get/get.dart';
-
-import '../../data/models/user_model.dart';
-import '../../data/network_caller/network_caller.dart';
-import '../../data/network_caller/network_response.dart';
-import '../../data/utility/urls.dart';
-import '../controllers/auth_controllers.dart';
-import '../controllers/edit_profile_controller.dart';
-import '../widgets/snack_message.dart';
-import 'package:image_picker/image_picker.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});

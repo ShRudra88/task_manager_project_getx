@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager_project_rest_api/ui/controllers/signup_controller.dart';
-import 'package:task_manager_project_rest_api/ui/widgets/body_background.dart';
-
-import '../../data/network_caller/network_caller.dart';
-import '../../data/network_caller/network_response.dart';
-import '../../data/utility/urls.dart';
-import '../widgets/snack_message.dart';
 import 'package:get/get.dart';
-
-import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

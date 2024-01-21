@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_project_getx/ui/screens/Splash_screen.dart';
 
 class TaskManagerApp extends StatelessWidget {
   const TaskManagerApp({super.key});
@@ -33,7 +34,7 @@ class TaskManagerApp extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 12),
                 // maximumSize: const Size.fromWidth(double.infinity)
               ))),
-      //initialBinding: ControllerBinder(),
+         initialBinding: ControllerBinder(),
     );
   }
 }

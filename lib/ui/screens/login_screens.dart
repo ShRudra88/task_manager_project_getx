@@ -1,15 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager_project_rest_api/data/models/user_model.dart';
-import 'package:task_manager_project_rest_api/ui/controllers/auth_controllers.dart';
-import 'package:task_manager_project_rest_api/ui/controllers/login_controller.dart';
-import 'package:task_manager_project_rest_api/ui/screens/forgot_password_screen.dart';
-import 'package:task_manager_project_rest_api/ui/screens/main_bottom_nav_screen.dart';
-import 'package:task_manager_project_rest_api/ui/screens/sign_up_screen.dart';
-import 'package:task_manager_project_rest_api/ui/widgets/body_background.dart';
-import '../../data/network_caller/network_caller.dart';
-import '../../data/network_caller/network_response.dart';
-import '../../data/utility/urls.dart';
-import '../widgets/snack_message.dart';
 import 'package:get/get.dart';
 
 class LoginScreen extends StatefulWidget {

@@ -1,12 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../data/models/task_list_model.dart';
-import '../../data/network_caller/network_caller.dart';
-import '../../data/network_caller/network_response.dart';
-import '../../data/utility/urls.dart';
-import '../controllers/cancelled_task_controller.dart';
-import '../widgets/profile_summary_card.dart';
-import '../widgets/task_item_card.dart';
 import 'package:get/get.dart';
 
 class CancelledTasksScreen extends StatefulWidget {
