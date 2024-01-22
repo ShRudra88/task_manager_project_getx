@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager_project_getx/ui/screens/cancil_task_screen.dart';
+import 'package:task_manager_project_getx/ui/screens/completed_task_screen.dart';
+import 'package:task_manager_project_getx/ui/screens/new_task_screen.dart';
+import 'package:task_manager_project_getx/ui/screens/progress_task_screen.dart';
 
 class MainBottomNavScreen extends StatefulWidget {
   const MainBottomNavScreen({super.key});

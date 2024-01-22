@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_project_getx/ui/screens/add_new_task_screen.dart';
 
 class NewTasksScreen extends StatefulWidget {
   const NewTasksScreen({super.key});

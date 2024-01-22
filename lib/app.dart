@@ -39,7 +39,7 @@ class TaskManagerApp extends StatelessWidget {
   }
 }
 
-/*class ControllerBinder extends Bindings {
+class ControllerBinder extends Bindings {
   @override
   void dependencies() {
     Get.put(AuthController());
