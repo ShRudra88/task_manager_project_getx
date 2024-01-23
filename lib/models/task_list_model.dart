@@ -1,5 +1,7 @@
 
 
+import 'package:task_manager_project_getx/models/task.dart';
+
 class TaskListModel {
   String? status;
   List<Task>? taskList;

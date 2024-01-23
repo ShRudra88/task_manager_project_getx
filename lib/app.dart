@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_project_getx/controllers/auth_controller.dart';
+import 'package:task_manager_project_getx/controllers/cancelled_task_controller.dart';
+import 'package:task_manager_project_getx/controllers/completed_task_controller.dart';
+import 'package:task_manager_project_getx/controllers/edit_profile_controller.dart';
+import 'package:task_manager_project_getx/controllers/forgot_password_controller.dart';
+import 'package:task_manager_project_getx/controllers/login_controller.dart';
+import 'package:task_manager_project_getx/controllers/new_task_controller.dart';
+import 'package:task_manager_project_getx/controllers/pin_verification_controller.dart';
+import 'package:task_manager_project_getx/controllers/progress_task_controller.dart';
+import 'package:task_manager_project_getx/controllers/reset_password_controller.dart';
+import 'package:task_manager_project_getx/controllers/task_count_summary_list_controller.dart';
 import 'package:task_manager_project_getx/ui/screens/Splash_screen.dart';
+
+import 'controllers/add_new_task_controller.dart';
 
 class TaskManagerApp extends StatelessWidget {
   const TaskManagerApp({super.key});

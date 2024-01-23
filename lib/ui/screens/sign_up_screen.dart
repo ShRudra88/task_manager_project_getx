@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_project_getx/controllers/task_count_summary_list_controller.dart';
+import 'package:task_manager_project_getx/ui/screens/login_screens.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
