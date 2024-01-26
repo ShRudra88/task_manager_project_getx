@@ -10,9 +10,9 @@ import 'package:task_manager_project_getx/controllers/new_task_controller.dart';
 import 'package:task_manager_project_getx/controllers/pin_verification_controller.dart';
 import 'package:task_manager_project_getx/controllers/progress_task_controller.dart';
 import 'package:task_manager_project_getx/controllers/reset_password_controller.dart';
+import 'package:task_manager_project_getx/controllers/sign_up_controller.dart';
 import 'package:task_manager_project_getx/controllers/task_count_summary_list_controller.dart';
 import 'package:task_manager_project_getx/ui/screens/Splash_screen.dart';
-
 import 'controllers/add_new_task_controller.dart';
 
 class TaskManagerApp extends StatelessWidget {

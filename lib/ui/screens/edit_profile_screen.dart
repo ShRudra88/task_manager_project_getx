@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager_project_getx/controllers/auth_controller.dart';
+import 'package:task_manager_project_getx/controllers/edit_profile_controller.dart';
+import 'package:task_manager_project_getx/ui/widgets/body_background.dart';
+import 'package:task_manager_project_getx/ui/widgets/profile_summary_card.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});

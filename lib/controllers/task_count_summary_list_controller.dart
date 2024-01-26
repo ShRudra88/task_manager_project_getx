@@ -1,42 +1,32 @@
 import 'package:get/get.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_caller.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_response.dart';
+import 'package:task_manager_project_getx/models/task_count_summary.dart';
 
-class SignUpController extends GetxController {
-  bool _signUpInProgress = false;
-  String _messsage = '';
+class TaskCountSummaryListController extends GetxController {
+  bool _getTaskCountSummaryInProgress = false;
+  TaskCountSummaryListModel _taskCountSummaryListModel =
+  TaskCountSummaryListModel();
 
-  String get message => _messsage;
+  bool get getTaskCountSummaryInProgress => _getTaskCountSummaryInProgress;
 
-  bool get signUpInProgress => _signUpInProgress;
+  TaskCountSummaryListModel get taskCountSummaryListModel =>
+      _taskCountSummaryListModel;
 
-  Future<bool> signUp(
-      String? firstName,
-      String? lastName,
-      String? email,
-      String? mobile,
-      String? password,
-      ) async {
+  Future<bool> getTaskCountSummaryList() async {
     bool isSuccess = false;
-    _signUpInProgress = true;
+    _getTaskCountSummaryInProgress = true;
     update();
     final NetworkResponse response =
-    await NetworkCaller().postRequest(Urls.registration, body: {
-      "firstName": firstName,
-      "lastName": lastName,
-      "email": email,
-      "password": password,
-      "mobile": mobile,
-    });
-    _signUpInProgress = false;
-    update();
+    await NetworkCaller().getRequest(Urls.getTaskStatusCount);
+
     if (response.isSuccess) {
+      _taskCountSummaryListModel =
+          TaskCountSummaryListModel.fromJson(response.jsonResponse);
       isSuccess = true;
-      _messsage = 'Account has been created! login please.';
-    } else {
-      _messsage = 'Account creation failed! try again please.';
-      isSuccess = false;
     }
+    _getTaskCountSummaryInProgress = false;
+    update();
     return isSuccess;
   }
 }

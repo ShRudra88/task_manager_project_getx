@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_project_getx/controllers/forgot_password_controller.dart';
 import 'package:task_manager_project_getx/ui/screens/pin_verification_screen.dart';
+import 'package:task_manager_project_getx/ui/widgets/snack_message.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -12,7 +13,7 @@ class ForgotPasswordScreen extends StatefulWidget {
 
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final TextEditingController _emailTEController = TextEditingController();
-  ForgotPasswordController _forgotPasswordController = Get.find<ForgotPasswordController>();
+  final ForgotPasswordController _forgotPasswordController = Get.find<ForgotPasswordController>();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 

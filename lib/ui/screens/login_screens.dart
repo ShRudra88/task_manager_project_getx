@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:task_manager_project_getx/ui/screens/forgot_password_screen.dart';
 import 'package:task_manager_project_getx/ui/screens/main_bottom_nav_screen.dart';
 import 'package:task_manager_project_getx/ui/screens/sign_up_screen.dart';
+import 'package:task_manager_project_getx/ui/widgets/snack_message.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

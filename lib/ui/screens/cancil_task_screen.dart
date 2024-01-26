@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_project_getx/controllers/cancelled_task_controller.dart';
+import 'package:task_manager_project_getx/ui/widgets/profile_summary_card.dart';
+import 'package:task_manager_project_getx/ui/widgets/task_item_card.dart';
 
 class CancelledTasksScreen extends StatefulWidget {
   const CancelledTasksScreen({super.key});

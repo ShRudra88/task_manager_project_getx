@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_project_getx/controllers/progress_task_controller.dart';
 
 class ProgressTasksScreen extends StatefulWidget {
   const ProgressTasksScreen({super.key});
