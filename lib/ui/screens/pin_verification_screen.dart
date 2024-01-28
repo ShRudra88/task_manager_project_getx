@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:task_manager_project_getx/controllers/pin_verification_controller.dart';
 import 'package:task_manager_project_getx/ui/screens/login_screens.dart';
+import 'package:task_manager_project_getx/ui/screens/reset_password_screen.dart';
 import 'package:task_manager_project_getx/ui/widgets/body_background.dart';
 import 'package:task_manager_project_getx/ui/widgets/snack_message.dart';
 

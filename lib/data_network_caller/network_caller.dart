@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/response/response.dart';
+import 'package:http/http.dart';
 import 'package:task_manager_project_getx/app.dart';
 import 'package:task_manager_project_getx/controllers/auth_controller.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_response.dart';
@@ -13,8 +13,8 @@ class NetworkCaller {
     try {
       log(url);
       log(body.toString());
-      final Response response =
-      await post(Uri.parse(url), body: jsonEncode(body), headers: {
+      // ignore: unnecessary_nullable_for_final_variable_declarations
+      final response = await post(Uri.parse(url), body: jsonEncode(body), headers: {
         'Content-type': 'Application/json',
         'token': AuthController.token.toString(),
       });
@@ -51,7 +51,7 @@ class NetworkCaller {
   Future<NetworkResponse> getRequest(String url) async {
     try {
       log(url);
-      final Response response = await get(Uri.parse(url), headers: {
+      final response = await get(Uri.parse(url), headers: {
         'Content-type': 'Application/json',
         'token': AuthController.token.toString(),
       });

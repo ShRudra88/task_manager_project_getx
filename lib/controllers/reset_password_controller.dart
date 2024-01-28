@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_caller.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_response.dart';
+import 'package:task_manager_project_getx/utility/urls.dart';
 
 class ResetPassWordController extends GetxController {
   bool _resetPasswordInProgress = false;

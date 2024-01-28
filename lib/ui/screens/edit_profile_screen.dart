@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:task_manager_project_getx/controllers/auth_controller.dart';
 import 'package:task_manager_project_getx/controllers/edit_profile_controller.dart';
 import 'package:task_manager_project_getx/ui/screens/main_bottom_nav_screen.dart';

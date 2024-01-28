@@ -1,10 +1,13 @@
 import 'dart:async';
+import 'package:image_picker/image_picker.dart';
 import 'package:task_manager_project_getx/controllers/auth_controller.dart';
+import 'package:task_manager_project_getx/controllers/task_count_summary_list_controller.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_caller.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_response.dart';
 import 'package:task_manager_project_getx/models/user_model.dart';
 import 'dart:convert';
 import 'package:get/get.dart';
+import 'package:task_manager_project_getx/utility/urls.dart';
 import 'new_task_controller.dart';
 
 class EditProfileController extends GetxController {

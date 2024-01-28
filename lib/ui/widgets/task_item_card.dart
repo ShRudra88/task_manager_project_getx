@@ -1,9 +1,9 @@
 // ignore_for_file: constant_identifier_names
-
 import 'package:flutter/material.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_caller.dart';
 import 'package:task_manager_project_getx/models/task.dart';
-import '../screens/main_bottom_nav_screen.dart';
+import 'package:task_manager_project_getx/ui/screens/main_bottom_nav_screen.dart';
+import 'package:task_manager_project_getx/utility/urls.dart';
 import 'package:get/get.dart';
 
 enum TaskStatus {

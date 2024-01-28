@@ -1,235 +1,174 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task_manager_project_getx/controllers/sign_up_controller.dart';
+import 'package:task_manager_project_getx/controllers/reset_password_controller.dart';
 import 'package:task_manager_project_getx/ui/screens/login_screens.dart';
 import 'package:task_manager_project_getx/ui/widgets/body_background.dart';
 import 'package:task_manager_project_getx/ui/widgets/snack_message.dart';
 
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class ResetPasswordScreen extends StatefulWidget {
+  String? email;
+  String? otp;
+
+  ResetPasswordScreen({super.key, required this.email, required this.otp});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
-  final TextEditingController _emailTEController = TextEditingController();
-  final TextEditingController _firstNameTEController = TextEditingController();
-  final TextEditingController _lastNameTEController = TextEditingController();
-  final TextEditingController _mobileTEController = TextEditingController();
-  final TextEditingController _passwordTEController = TextEditingController();
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  final SignUpController _signUpController = Get.find<SignUpController>();
+  final TextEditingController _passwordTEController = TextEditingController();
+  final TextEditingController _confirmPasswordTEController =
+  TextEditingController();
+  final ResetPassWordController _resetPassWordController = Get.find<ResetPassWordController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BodyBackground(
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
-            child: SingleChildScrollView(
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    Text(
-                      'Join With Us',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    TextFormField(
-                      controller: _emailTEController,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: const InputDecoration(
-                        hintText: 'Email',
+          child: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: SingleChildScrollView(
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 80),
+                      Text(
+                        'Set Password',
+                        // style: Theme.of(context).textTheme.headlineMedium,
+                        style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      autovalidateMode: AutovalidateMode.always,
-                      validator: (String? value) {
-                        if (value?.trim().isEmpty ?? true) {
-                          return 'Enter your valid email';
-                        }
-                        bool emailValid = RegExp(
-                            r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
-                            .hasMatch(value!);
-                        if (emailValid == false) {
-                          return 'Enter valid Email';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    TextFormField(
-                      controller: _firstNameTEController,
-                      decoration: const InputDecoration(
-                        hintText: 'First name',
+                      const SizedBox(
+                        height: 8,
                       ),
-                      validator: (String? value) {
-                        if (value?.trim().isEmpty ?? true) {
-                          return 'Enter your first name';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    TextFormField(
-                      controller: _lastNameTEController,
-                      decoration: const InputDecoration(
-                        hintText: 'Last name',
+                      const Text(
+                        'Minimum Password length Should be more than 6 letters ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600, color: Colors.grey),
                       ),
-                      validator: (String? value) {
-                        if (value?.trim().isEmpty ?? true) {
-                          return 'Enter your last name';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    TextFormField(
-                      controller: _mobileTEController,
-                      keyboardType: TextInputType.phone,
-                      decoration: const InputDecoration(
-                        hintText: 'Mobile',
+                      const SizedBox(
+                        height: 16,
                       ),
-                      validator: (String? value) {
-                        if (value?.trim().isEmpty ?? true) {
-                          return 'Enter your mobile';
-                        }
-                        bool validPhone =
-                        RegExp(r'^01[3-9][0-9]{8}$').hasMatch(value!);
-
-                        if (validPhone == false) {
-                          return 'Enter valid Phone Number';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    TextFormField(
-                      controller: _passwordTEController,
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                        hintText: 'Password',
+                      TextFormField(
+                        controller: _passwordTEController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          hintText: 'Password',
+                        ),
+                        validator: (String? value) {
+                          if (value?.isEmpty ?? true) {
+                            return 'Enter your mobile';
+                          }
+                          if (value!.length < 6) {
+                            return 'Enter password more than 6 letters';
+                          }
+                          return null;
+                        },
                       ),
-                      validator: (String? value) {
-                        if (value?.isEmpty ?? true) {
-                          return 'Enter your Password';
-                        }
-                        if (value!.length < 6) {
-                          return 'Enter password more than 6 letters';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      child: GetBuilder<SignUpController>(
-                          builder: (signUpController) {
-                            return Visibility(
-                              visible: signUpController.signUpInProgress == false,
-                              replacement: const Center(
-                                child: CircularProgressIndicator(),
-                              ),
-                              child: ElevatedButton(
-                                onPressed: _signUp,
-                                child: const Icon(Icons.arrow_forward_ios),
-                              ),
-                            );
-                          }),
-                    ),
-                    const SizedBox(
-                      height: 48,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Have an account?",
-                          style: TextStyle(
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      TextFormField(
+                        controller: _confirmPasswordTEController,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          hintText: 'Password',
+                        ),
+                        validator: (String? value) {
+                          if (_passwordTEController.text != value) {
+                            return 'Password did not match, Try again!';
+                          }
+                          if (value?.isEmpty ?? true) {
+                            return 'Enter your Confirm password';
+                          }
+                          if (value!.length < 6) {
+                            return 'Enter password more than 6 letters';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        child: GetBuilder<ResetPassWordController>(
+                            builder: (resetPassWordController) {
+                              return Visibility(
+                                visible:
+                                resetPassWordController.resetPasswordInProgress ==
+                                    false,
+                                replacement: const Center(
+                                  child: Center(child: CircularProgressIndicator()),
+                                ),
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    resetPass();
+                                  },
+                                  child: const Text('Confirm'),
+                                ),
+                              );
+                            }),
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Have an account ?",
+                            style: TextStyle(
                               fontSize: 16,
+                              color: Colors.black,
                               fontWeight: FontWeight.w600,
-                              color: Colors.black54),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          child: const Text(
-                            'Sign In',
-                            style: TextStyle(fontSize: 16),
+                            ),
                           ),
-                        ),
-                      ],
-                    )
-                  ],
+                          TextButton(
+                            onPressed: () {
+                              Get.offAll(() => const LoginScreen());
+                            },
+                            child: const Text(
+                              'Sign In',
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ),
-      ),
+          )),
     );
   }
 
-  Future<void> _signUp() async {
+  Future<void> resetPass() async {
     if (!_formKey.currentState!.validate()) {
       return;
     }
 
-    final response = await _signUpController.signUp(
-        _emailTEController.text.trim(),
-        _firstNameTEController.text.trim(),
-        _lastNameTEController.text.trim(),
-        _mobileTEController.text.trim(),
+    final response = await _resetPassWordController.resetPass(
+        widget.email.toString(),
+        widget.otp.toString(),
         _passwordTEController.text);
 
     if (response) {
-      _clearTextFields();
       if (mounted) {
-        showSnackMessage(context, _signUpController.message);
         Get.offAll(const LoginScreen());
+        showSnackMessage(context, _resetPassWordController.message);
       }
     } else {
       if (mounted) {
-        showSnackMessage(context, _signUpController.message, true);
+        showSnackMessage(context, _resetPassWordController.message, true);
       }
     }
-  }
-
-  void _clearTextFields() {
-    _emailTEController.clear();
-    _firstNameTEController.clear();
-    _lastNameTEController.clear();
-    _mobileTEController.clear();
-    _passwordTEController.clear();
-  }
-
-  @override
-  void dispose() {
-    _emailTEController.dispose();
-    _firstNameTEController.dispose();
-    _lastNameTEController.dispose();
-    _mobileTEController.dispose();
-    _passwordTEController.dispose();
-    super.dispose();
   }
 }

@@ -3,6 +3,8 @@ import 'package:task_manager_project_getx/data_network_caller/network_caller.dar
 import 'package:task_manager_project_getx/data_network_caller/network_response.dart';
 import 'package:task_manager_project_getx/models/task_count_summary.dart';
 
+import '../utility/urls.dart';
+
 class TaskCountSummaryListController extends GetxController {
   bool _getTaskCountSummaryInProgress = false;
   TaskCountSummaryListModel _taskCountSummaryListModel =

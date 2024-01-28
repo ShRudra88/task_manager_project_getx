@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_caller.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_response.dart';
 import 'package:task_manager_project_getx/models/task_list_model.dart';
+import 'package:task_manager_project_getx/utility/urls.dart';
 
 class ProgressTaskController extends GetxController {
   bool _getProgressTaskInProgress = false;
