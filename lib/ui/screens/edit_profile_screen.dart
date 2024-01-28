@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:task_manager_project_getx/controllers/auth_controller.dart';
 import 'package:task_manager_project_getx/controllers/edit_profile_controller.dart';
+import 'package:task_manager_project_getx/ui/screens/main_bottom_nav_screen.dart';
 import 'package:task_manager_project_getx/ui/widgets/body_background.dart';
 import 'package:task_manager_project_getx/ui/widgets/profile_summary_card.dart';
+import 'package:task_manager_project_getx/ui/widgets/snack_message.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -19,7 +23,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final TextEditingController _mobileTEController = TextEditingController();
   final TextEditingController _passwordTEController = TextEditingController();
   AuthController authController = Get.find<AuthController>();
-  EditProfileController _editProfileController = Get.find<EditProfileController>();
+  final EditProfileController _editProfileController = Get.find<EditProfileController>();
   XFile? photo;
 
   @override
@@ -202,7 +206,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       _clearTextFields();
       if (mounted) {
         showSnackMessage(context, _editProfileController.message);
-        Get.offAll(() =>  MainBottomNavScreen());
+        Get.offAll(() =>  const MainBottomNavScreen());
       }
     } else {
       if (mounted) {

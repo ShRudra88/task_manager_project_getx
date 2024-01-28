@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_manager_project_getx/controllers/completed_task_controller.dart';
+import 'package:task_manager_project_getx/ui/widgets/profile_summary_card.dart';
+import 'package:task_manager_project_getx/ui/widgets/task_item_card.dart';
 
 class CompletedTasksScreen extends StatefulWidget {
   const CompletedTasksScreen({super.key});
@@ -10,7 +12,7 @@ class CompletedTasksScreen extends StatefulWidget {
 }
 
 class _CompletedTasksScreenState extends State<CompletedTasksScreen> {
-  CompletedTaskController _completedTaskController =
+  final CompletedTaskController _completedTaskController =
   Get.find<CompletedTaskController>();
 
   @override
@@ -25,7 +27,7 @@ class _CompletedTasksScreenState extends State<CompletedTasksScreen> {
         body: SafeArea(
           child: Column(
             children: [
-              ProfileSummaryCard(),
+              const ProfileSummaryCard(),
               GetBuilder<CompletedTaskController>(
                   builder: (completedTaskController) {
                     return Expanded(

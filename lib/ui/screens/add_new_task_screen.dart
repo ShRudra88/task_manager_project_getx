@@ -4,7 +4,9 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:task_manager_project_getx/controllers/add_new_task_controller.dart';
+import 'package:task_manager_project_getx/ui/widgets/body_background.dart';
 import 'package:task_manager_project_getx/ui/widgets/profile_summary_card.dart';
+import 'package:task_manager_project_getx/ui/widgets/snack_message.dart';
 import 'main_bottom_nav_screen.dart';
 
 class AddNewTaskScreen extends StatefulWidget {

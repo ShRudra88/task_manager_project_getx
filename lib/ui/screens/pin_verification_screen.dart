@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_project_getx/controllers/pin_verification_controller.dart';
 import 'package:task_manager_project_getx/ui/screens/login_screens.dart';
+import 'package:task_manager_project_getx/ui/widgets/body_background.dart';
+import 'package:task_manager_project_getx/ui/widgets/snack_message.dart';
 
 class PinVerificationScreen extends StatefulWidget {
   final String email;
@@ -15,8 +18,7 @@ class _PinVerificationScreenState extends State<PinVerificationScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _otpTEController = TextEditingController();
 
-  PinVerificationController _pinVerificationController =
-  Get.find<PinVerificationController>();
+  final PinVerificationController _pinVerificationController =  Get.find<PinVerificationController>();
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:task_manager_project_getx/data_network_caller/network_caller.dart';
 import 'package:task_manager_project_getx/models/task.dart';
@@ -157,7 +159,7 @@ class _TaskItemCardState extends State<TaskItemCard> {
                 fontSize: 22,
               ),
             ),
-            content: Column(
+            content: const Column(
               mainAxisSize: MainAxisSize.min,
             ),
             actions: [

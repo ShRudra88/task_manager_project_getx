@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task_manager_project_getx/controllers/task_count_summary_list_controller.dart';
+import 'package:task_manager_project_getx/controllers/sign_up_controller.dart';
+import 'package:task_manager_project_getx/ui/screens/login_screens.dart';
+import 'package:task_manager_project_getx/ui/widgets/body_background.dart';
+import 'package:task_manager_project_getx/ui/widgets/snack_message.dart';
 
 
 class SignUpScreen extends StatefulWidget {
@@ -18,7 +21,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _passwordTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  SignUpController _signUpController = Get.find<SignUpController>();
+  final SignUpController _signUpController = Get.find<SignUpController>();
 
   @override
   Widget build(BuildContext context) {

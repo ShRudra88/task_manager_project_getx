@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task_manager_project_getx/controllers/login_controller.dart';
 import 'package:task_manager_project_getx/ui/screens/forgot_password_screen.dart';
 import 'package:task_manager_project_getx/ui/screens/main_bottom_nav_screen.dart';
 import 'package:task_manager_project_getx/ui/screens/sign_up_screen.dart';
+import 'package:task_manager_project_getx/ui/widgets/body_background.dart';
 import 'package:task_manager_project_getx/ui/widgets/snack_message.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -95,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Center(
                       child: TextButton(
                         onPressed: () {
-                          Get.to(()=>ForgotPasswordScreen());
+                          Get.to(()=>const ForgotPasswordScreen());
                         },
                         child: const Text(
                           'Forgot Password?',
@@ -115,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         TextButton(
                           onPressed: () {
-                            Get.to(()=>SignUpScreen());
+                            Get.to(()=>const SignUpScreen());
                           },
                           child: const Text(
                             'Sign Up',
@@ -144,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (response) {
       _clearTextFields();
       if (mounted) {
-        Get.offAll(MainBottomNavScreen());
+        Get.offAll(const MainBottomNavScreen());
       }
     } else {
       if (mounted) {
