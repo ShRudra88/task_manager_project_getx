@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:task_manager_project_getx/controllers/auth_controller.dart';
 import 'package:task_manager_project_getx/controllers/edit_profile_controller.dart';
@@ -80,7 +79,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               }
 
                               bool emailValid = RegExp(
-                                  r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                                  r'^.+@[a-zA-Z]+\.[a-zA-Z]+(\.?[a-zA-Z]+)$')
                                   .hasMatch(value!);
                               if (emailValid == false) {
                                 return 'Enter valid Email';

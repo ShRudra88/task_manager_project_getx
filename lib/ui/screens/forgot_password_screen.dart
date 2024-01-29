@@ -65,7 +65,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                           }
 
                           bool emailValid = RegExp(
-                              r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                              r'^.+@[a-zA-Z]+\.[a-zA-Z]+(\.?[a-zA-Z]+)$')
                               .hasMatch(value!);
                           if (emailValid == false) {
                             return 'Enter valid Email';
@@ -155,9 +155,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     }
   }
 
-  void _clearTextFields() {
-    _emailTEController.clear();
-  }
 
   @override
   void dispose() {

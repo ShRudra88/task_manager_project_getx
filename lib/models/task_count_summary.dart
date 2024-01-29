@@ -1,5 +1,3 @@
-
-
 import 'package:task_manager_project_getx/models/tast_count.dart';
 
 class TaskCountSummaryListModel {

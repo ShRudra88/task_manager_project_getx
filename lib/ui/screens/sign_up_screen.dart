@@ -57,7 +57,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           return 'Enter your valid email';
                         }
                         bool emailValid = RegExp(
-                            r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                            r'^.+@[a-zA-Z]+\.[a-zA-Z]+(\.?[a-zA-Z]+)$')
                             .hasMatch(value!);
                         if (emailValid == false) {
                           return 'Enter valid Email';

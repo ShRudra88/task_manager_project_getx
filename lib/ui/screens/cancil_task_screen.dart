@@ -12,7 +12,7 @@ class CancelledTasksScreen extends StatefulWidget {
 }
 
 class _CancelledTasksScreenState extends State<CancelledTasksScreen> {
-  CancelledTaskController _cancelledTaskController = Get.find<CancelledTaskController>();
+  final CancelledTaskController _cancelledTaskController = Get.find<CancelledTaskController>();
 
   @override
   void initState() {
@@ -26,7 +26,7 @@ class _CancelledTasksScreenState extends State<CancelledTasksScreen> {
         body: SafeArea(
           child: Column(
             children: [
-              ProfileSummaryCard(),
+              const ProfileSummaryCard(),
               Expanded(
                 child: GetBuilder<CancelledTaskController>(builder: (context) {
                   return Visibility(
