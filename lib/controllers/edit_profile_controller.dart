@@ -35,7 +35,7 @@ class EditProfileController extends GetxController {
       inputData['password'] = password;
     }
     if (photo != null) {
-      List<int> imageBytes = await photo!.readAsBytes();
+      List<int> imageBytes = await photo.readAsBytes();
       photoInBase64 = base64Encode(imageBytes);
       inputData['photo'] = photoInBase64;
     }

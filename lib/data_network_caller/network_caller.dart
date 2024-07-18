@@ -13,7 +13,6 @@ class NetworkCaller {
     try {
       log(url);
       log(body.toString());
-      // ignore: unnecessary_nullable_for_final_variable_declarations
       final response = await post(Uri.parse(url), body: jsonEncode(body), headers: {
         'Content-type': 'Application/json',
         'token': AuthController.token.toString(),

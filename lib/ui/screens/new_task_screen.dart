@@ -16,8 +16,8 @@ class NewTasksScreen extends StatefulWidget {
 }
 
 class _NewTasksScreenState extends State<NewTasksScreen> {
-  NewTaskController _newTaskController = Get.find<NewTaskController>();
-  TaskCountSummaryListController _taskCountSummaryListController =
+  final NewTaskController _newTaskController = Get.find<NewTaskController>();
+  final TaskCountSummaryListController _taskCountSummaryListController =
   Get.find<TaskCountSummaryListController>();
 
 
