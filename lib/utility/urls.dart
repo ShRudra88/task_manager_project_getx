@@ -1,4 +1,3 @@
-
 import 'package:task_manager_project_getx/ui/widgets/task_item_card.dart';
 
 class Urls {

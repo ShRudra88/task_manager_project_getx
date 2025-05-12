@@ -22,8 +22,7 @@ class _ProfileSummaryCardState extends State<ProfileSummaryCard> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AuthController>(builder: (authController) {
-      Uint8List imageBytes =
-      const Base64Decoder().convert(authController.user?.photo ?? '');
+      Uint8List imageBytes = const Base64Decoder().convert(authController.user?.photo ?? '');
       return ListTile(
         onTap: () {
           if (widget.enableOnTap == true) {

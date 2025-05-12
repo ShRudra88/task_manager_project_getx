@@ -23,11 +23,12 @@ class TaskManagerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Task Manager',
       home: const SplashScreen(),
       theme: ThemeData(
           inputDecorationTheme: const InputDecorationTheme(
-              fillColor: Colors.white,
+              fillColor: Colors.black12,
               filled: true,
               border: OutlineInputBorder(
                 borderSide: BorderSide.none,
@@ -41,7 +42,7 @@ class TaskManagerApp extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               )),
           primaryColor: Colors.green,
-          primarySwatch: Colors.green,
+          primarySwatch: Colors.lightGreen,
           elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 12),

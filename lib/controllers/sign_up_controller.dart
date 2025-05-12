@@ -12,9 +12,9 @@ class SignUpController extends GetxController {
   bool get signUpInProgress => _signUpInProgress;
 
   Future<bool> signUp(
+      String? email,
       String? firstName,
       String? lastName,
-      String? email,
       String? mobile,
       String? password,
       ) async {
@@ -23,9 +23,9 @@ class SignUpController extends GetxController {
     update();
     final NetworkResponse response =
     await NetworkCaller().postRequest(Urls.registration, body: {
+      "email": email,
       "firstName": firstName,
       "lastName": lastName,
-      "email": email,
       "password": password,
       "mobile": mobile,
     });

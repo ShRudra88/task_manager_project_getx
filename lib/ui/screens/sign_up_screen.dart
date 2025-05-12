@@ -108,8 +108,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         if (value?.trim().isEmpty ?? true) {
                           return 'Enter your mobile';
                         }
-                        bool validPhone =
-                        RegExp(r'^01[3-9][0-9]{8}$').hasMatch(value!);
+                        bool validPhone = RegExp(r'^01[3-9][0-9]{8}$').hasMatch(value!);
 
                         if (validPhone == false) {
                           return 'Enter valid Phone Number';

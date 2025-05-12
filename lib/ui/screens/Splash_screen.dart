@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> goToLogin() async {
     final bool isLoggedIn = await Get.find<AuthController>().checkAuthState();
-    Future.delayed(const Duration(seconds: 2)).then((value) {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       Get.offAll(
       //const MainBottomNavScreen());
       isLoggedIn ? const MainBottomNavScreen() : const LoginScreen());
@@ -36,10 +36,10 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: BodyBackground(
         child: Center(
-          child: SvgPicture.asset(
-            'assets/images/background.svg',
-            width: double.infinity,
-            height: double.infinity,
+          child: Image.asset(
+            'assets/images/logo.png',
+            width: 150,
+            height: 150,
             fit: BoxFit.cover,
           ),
         ),
