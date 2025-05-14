@@ -1,16 +1,45 @@
-# task_manager_project_getx
+# Task Manager App (Flutter + GetX)
 
-Task manager project using getx state management
+A clean and modern Flutter task management app using **GetX** for state management and **REST API** for backend interaction. The app follows **Clean Architecture** principles and delivers a smooth user experience with organized code structure.
 
-## Getting Started
+## ✨ Features
 
-This project is a starting point for a Flutter application.
+- 🔐 User Registration & Login
+- ✅ Add New Task
+- 📝 Edit Task
+- ❌ Delete Task
+- 📋 Task Filtering by Status:
+    - New Tasks
+    - In Progress Tasks
+    - Completed Tasks
+    - Cancelled Tasks
+- 👤 Update User Profile
+- 🔄 Password Recovery via Email + OTP
 
-A few resources to get you started if this is your first Flutter project:
+## 🧱 Tech Stack
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Flutter** – UI Framework
+- **GetX** – State Management & Routing
+- **Dart** – Programming Language
+- **REST API** – Backend communication
+- **Clean Architecture** – Data / Domain / Presentation layers
+- **Modern UI** – Responsive, reusable widget-based structure
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## 🌐 API Endpoints (used)
+
+- POST `/registration`
+- POST `/login`
+- POST `/createTask`
+- GET `/taskStatusCount`
+- GET `/listTaskByStatus/New`
+- GET `/listTaskByStatus/Progress`
+- GET `/listTaskByStatus/Completed`
+- GET `/listTaskByStatus/Cancelled`
+- GET `/updateTaskStatus/{taskId}/{status}`
+- GET `/deleteTask/{taskId}`
+- POST `/profileUpdate`
+- GET `/RecoverVerifyEmail/{email}`
+- GET `/RecoverVerifyOTP/{email}/{otp}`
+- POST `/RecoverResetPass`
+
